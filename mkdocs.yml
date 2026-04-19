@@ -51,6 +51,6 @@ markdown_extensions:
 
 nav:
   - 홈: index.md
-  - 재증명서 발급 안내: certificates.md
-  - 재증명서 발급비용: certificate-fees.md
+  - 제증명서 발급 안내: certificates.md
+  - 제증명서 발급비용: certificate-fees.md
   - 비급여 수가표: non-covered-fees.md
