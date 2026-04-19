@@ -524,43 +524,211 @@ body, .md-typeset {
 .md-typeset ul li::marker { color: var(--sg-muted); }
 
 /* ============================================================
- * Key points \u2014 \ubc88\ud638 \uac15\uc870 \uc139\uc158 (\ucf5c\uc544\uc6c3 \ub300\uc548)
- *
- * \ub9c8\ud06c\ub2e4\uc6b4:
- *   <div class="key-points" markdown>
- *
- *   **01. \uc81c\ubaa9**
- *   \uc124\uba85 \ubb38\uc7a5...
- *
- *   **02. \uc81c\ubaa9**
- *   ...
- *   </div>
+ * 3-PART 구조 (certificates.md 리디자인)
  * ============================================================ */
+.md-typeset .part {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--sg-border);
+}
+.md-typeset .part:first-of-type {
+  margin-top: 1.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+.md-typeset .part__label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.md-typeset .part__num {
+  font-family: var(--sg-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--sg-muted);
+}
+.md-typeset .part__title,
+.md-typeset h2.part__title {
+  font-family: var(--sg-serif);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: -0.015em;
+  color: var(--sg-ink);
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+/* Key points (재설계 — grid 키-값 구조) */
 .md-typeset .key-points {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin: 1rem 0 2rem;
-  padding: 1.4rem 0 0.4rem;
-  border-top: 1px solid var(--sg-border);
+  gap: 1.7rem;
+  margin: 0 0 2.2rem;
+  padding: 0;
+  border: none;
 }
-.md-typeset .key-points p {
-  margin: 0;
-  color: var(--sg-body);
-  line-height: 1.75;
+.md-typeset .key-points__item {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
 }
-.md-typeset .key-points p strong {
-  display: block;
+.md-typeset .key-points__num {
+  font-family: var(--sg-mono);
+  font-size: 0.72rem;
+  color: var(--sg-muted);
+  letter-spacing: 0.08em;
+  padding-top: 0.2rem;
+}
+.md-typeset h3.key-points__title {
   font-family: var(--sg-serif);
   font-weight: 500;
   font-size: 1rem;
   color: var(--sg-ink);
-  letter-spacing: -0.015em;
-  margin-bottom: 0.35rem;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
 }
-/* \ubc88\ud638 (01., 02., 03.) \uc5d0\ub294 \uc138\ub9ac\ud504 + muted \ud1a4 \u2014 \uc800\ub3c4\ub85c \uad6c\ubd84 */
-.md-typeset .key-points p strong::first-letter {
-  /* noop \u2014 \uc804\uccb4 \ud68d\uc77c \uc2a4\ud0c0\uc77c\ub85c \uc788\uc5b4\uc57c \ud568 */
+.md-typeset .key-points__item > div > p {
+  margin: 0;
+  color: var(--sg-body);
+  line-height: 1.7;
+  font-size: 0.84rem;
+}
+
+/* CTA dual cards */
+.md-typeset .cta-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0 0;
+}
+@media (max-width: 50em) {
+  .md-typeset .cta-dual { grid-template-columns: 1fr; }
+}
+.md-typeset .cta-card {
+  background: var(--sg-surface);
+  border: 1px solid var(--sg-border);
+  border-left: 3px solid var(--sg-accent);
+  padding: 1.4rem 1.5rem;
+}
+.md-typeset .cta-card__label {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sg-muted);
+  margin-bottom: 0.4rem;
+}
+.md-typeset h4.cta-card__title {
+  font-family: var(--sg-serif);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--sg-ink);
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+.md-typeset p.cta-card__desc {
+  font-size: 0.78rem;
+  color: var(--sg-body);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+.md-typeset a.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--sg-accent);
+  color: #fff;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  transition: background 0.15s ease;
+  margin-top: 0.2rem;
+}
+.md-typeset a.cta-button:hover { background: var(--sg-accent-deep); border: none; color: #fff; }
+.md-typeset a.cta-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--sg-accent-deep);
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--sg-accent-soft);
+  padding-bottom: 1px;
+}
+.md-typeset .cta-card__note {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--sg-muted);
+  margin-top: 0.6rem;
+}
+
+/* Tip line */
+.md-typeset .tip-line {
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+  padding: 0.85rem 1.1rem;
+  background: var(--sg-accent-soft);
+  border-left: 2px solid var(--sg-accent);
+  margin-top: 1.8rem;
+  font-size: 0.82rem;
+  color: var(--sg-body);
+  line-height: 1.65;
+}
+.md-typeset .tip-line__label {
+  font-family: var(--sg-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--sg-accent-deep);
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* Steps (방문 후 청구 3단계) */
+.md-typeset ol.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step-counter;
+}
+.md-typeset ol.steps li {
+  counter-increment: step-counter;
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  gap: 0.9rem;
+  align-items: baseline;
+  color: var(--sg-body);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+.md-typeset ol.steps li::before {
+  content: counter(step-counter);
+  font-family: var(--sg-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--sg-accent);
+  line-height: 1;
+}
+.md-typeset ol.steps li::marker { content: none; }
+
+/* Footnote */
+.md-typeset .footnote {
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--sg-border);
+  font-size: 0.74rem;
+  color: var(--sg-muted);
+  line-height: 1.65;
 }
 
 /* ---- \uc624\ub978\ucabd TOC \uc644\uc804 \uc81c\uac70 ---- */
