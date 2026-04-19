@@ -1,103 +1,501 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+/* ============================================================
+ * hsdc-docs — Soft Sage theme override for Material for MkDocs
+ * 확정안: B (Soft Sage) + B2 (그룹핑 수가표) + V1 (가격 Pretendard regular)
+ *
+ * 사용법:
+ *   1) 이 파일을 docs/stylesheets/extra.css 로 저장
+ *   2) mkdocs.yml 에 아래 블록 추가:
+ *        extra_css:
+ *          - stylesheets/extra.css
+ *        theme:
+ *          name: material
+ *          palette:
+ *            scheme: default
+ *            primary: custom
+ *            accent: custom
+ *          font:
+ *            text: Pretendard
+ *            code: JetBrains Mono
+ * ============================================================ */
 
+/* ---- Fonts ---- */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- Design tokens ---- */
 :root {
-  --md-text-font: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR",
-    sans-serif;
-  --md-code-font: "JetBrains Mono", "D2Coding", ui-monospace, SFMono-Regular,
-    Consolas, monospace;
+  --sg-bg: #f8f7f3;
+  --sg-surface: #ffffff;
+  --sg-border: #e8e5dc;
+  --sg-border-strong: #d6d2c5;
+  --sg-ink: #1f2722;
+  --sg-body: #3a443e;
+  --sg-muted: #7a8279;
+  --sg-muted-soft: #a6ab9f;
+  --sg-accent: #527a63;
+  --sg-accent-deep: #2f5142;
+  --sg-accent-soft: #e6ede9;
+  --sg-table-head: #f2f0ea;
+  --sg-table-alt: #faf9f6;
+
+  --sg-sans: 'Pretendard Variable','Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  --sg-serif: 'Noto Serif KR', ui-serif, serif;
+  --sg-mono: 'JetBrains Mono','SF Mono', Menlo, monospace;
+
+  /* Material palette overrides */
+  --md-primary-fg-color: var(--sg-accent);
+  --md-primary-fg-color--light: var(--sg-accent-soft);
+  --md-primary-fg-color--dark: var(--sg-accent-deep);
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: var(--sg-accent-deep);
+  --md-default-bg-color: var(--sg-surface);
+  --md-default-fg-color: var(--sg-ink);
+  --md-default-fg-color--light: var(--sg-body);
+  --md-default-fg-color--lighter: var(--sg-muted);
+  --md-typeset-color: var(--sg-ink);
+  --md-typeset-a-color: var(--sg-accent-deep);
+  --md-code-bg-color: var(--sg-bg);
+  --md-code-fg-color: var(--sg-body);
 }
 
-body,
-.md-typeset {
-  font-family: var(--md-text-font);
-  font-feature-settings: "ss01", "ss02";
+/* ---- Base typography ---- */
+body, .md-typeset {
+  font-family: var(--sg-sans);
+  color: var(--sg-ink);
+  letter-spacing: -0.005em;
 }
 
 .md-typeset {
-  font-size: 0.82rem;
+  font-size: 0.82rem;   /* ~14.8px */
   line-height: 1.75;
-  letter-spacing: -0.01em;
 }
 
-.md-typeset h1 {
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 1em;
+.md-typeset p {
+  color: var(--sg-body);
 }
 
-.md-typeset h2 {
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-top: 2.6em;
-  padding-top: 0.2em;
-}
-
+/* Headings — Noto Serif KR */
+.md-typeset h1,
+.md-typeset h2,
 .md-typeset h3 {
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  margin-top: 1.8em;
+  font-family: var(--sg-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--sg-ink);
+}
+.md-typeset h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+}
+.md-typeset h2 {
+  font-size: 1.35rem;
+  margin: 2rem 0 0.8rem;
+  padding-bottom: 0;
+  border: none;
+}
+.md-typeset h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.6rem;
+}
+.md-typeset h4, .md-typeset h5 {
+  font-family: var(--sg-sans);
+  font-weight: 600;
+  color: var(--sg-ink);
 }
 
-.md-typeset p,
-.md-typeset li {
-  word-break: keep-all;
-  overflow-wrap: break-word;
+/* Links */
+.md-typeset a {
+  color: var(--sg-accent-deep);
+  border-bottom: 1px solid var(--sg-accent-soft);
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+.md-typeset a:hover {
+  color: var(--sg-accent);
+  border-bottom-color: var(--sg-accent);
 }
 
-.md-typeset table:not([class]) {
+/* Emphasis */
+.md-typeset strong { color: var(--sg-ink); font-weight: 600; }
+
+/* ---- Header ---- */
+.md-header {
+  background-color: var(--sg-surface);
+  color: var(--sg-ink);
+  border-bottom: 1px solid var(--sg-border);
+  box-shadow: none;
+}
+.md-header[data-md-state="shadow"] {
+  box-shadow: 0 1px 0 var(--sg-border);
+}
+.md-header__title {
+  font-family: var(--sg-serif);
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  color: var(--sg-ink);
+}
+.md-header__button,
+.md-header__button svg { color: var(--sg-body); }
+
+/* Search box */
+.md-search__form {
+  background-color: var(--sg-bg);
+  border: 1px solid var(--sg-border);
+  border-radius: 999px;
+  box-shadow: none;
+}
+.md-search__input {
+  color: var(--sg-body);
+}
+.md-search__input::placeholder { color: var(--sg-muted); }
+[data-md-toggle=search]:checked~.md-header .md-search__form { background: var(--sg-surface); }
+
+/* ---- Sidebar / Nav ---- */
+.md-sidebar {
+  background-color: var(--sg-surface);
+}
+.md-nav__title {
+  color: var(--sg-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.md-nav__link {
+  color: var(--sg-body);
   font-size: 0.78rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
+  padding: 0.36rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.12s ease;
+}
+.md-nav__link:hover {
+  color: var(--sg-accent-deep);
+  background: var(--sg-bg);
+}
+.md-nav__link--active,
+.md-nav__item--active > .md-nav__link:not(.md-nav__link--index) {
+  color: var(--sg-accent-deep);
+  font-weight: 600;
+  background: var(--sg-accent-soft);
+  border-left: 2px solid var(--sg-accent);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.md-typeset table:not([class]) th {
-  font-weight: 700;
-  background-color: var(--md-default-fg-color--lightest);
+/* Right-side TOC */
+.md-nav--secondary .md-nav__link--active {
+  background: transparent;
+  border-left: 2px solid var(--sg-accent);
+  color: var(--sg-accent-deep);
+}
+
+/* ---- Admonitions (기본 info 이모지 톤 제거 → 세이지 톤) ---- */
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--sg-border);
+  border-left: 3px solid var(--sg-accent);
+  background: var(--sg-accent-soft);
+  border-radius: 2px;
+  box-shadow: none;
+  font-size: 0.78rem;
+  color: var(--sg-body);
+}
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background: transparent;
+  font-family: var(--sg-serif);
+  font-weight: 500;
+  color: var(--sg-accent-deep);
+  padding-left: 1rem;
+}
+/* Hide default emoji/icon on admonition title */
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+  display: none;
+}
+.md-typeset .admonition-title {
+  padding-left: 1rem;
+}
+
+/* Note/Tip/Warning 색 미세 조정 */
+.md-typeset .admonition.note,
+.md-typeset details.note { border-left-color: var(--sg-accent); }
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-left-color: #b89456;
+  background: #f7f0e2;
+}
+.md-typeset .admonition.warning > .admonition-title { color: #7a5a1f; }
+
+/* ---- Tabs (내용 탭) ---- */
+.md-typeset .tabbed-set { border-radius: 4px; }
+.md-typeset .tabbed-labels > label {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--sg-muted);
+  padding: 0.6rem 1rem;
+}
+.md-typeset .tabbed-labels > label:hover { color: var(--sg-body); }
+.md-typeset .tabbed-set > input:checked + label {
+  color: var(--sg-accent-deep);
+  font-weight: 600;
+}
+.md-typeset .tabbed-set > input:checked + label + .tabbed-content { }
+.md-typeset .tabbed-labels {
+  border-bottom: 1px solid var(--sg-border);
+}
+.md-typeset .tabbed-labels > label::after {
+  background-color: var(--sg-accent);
+}
+
+/* ---- Buttons ---- */
+.md-typeset .md-button {
+  background: var(--sg-accent);
+  color: #fff;
+  border: 1px solid var(--sg-accent);
+  border-radius: 2px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  box-shadow: none;
+  transition: background 0.15s ease;
+}
+.md-typeset .md-button:hover {
+  background: var(--sg-accent-deep);
+  color: #fff;
+  border-color: var(--sg-accent-deep);
+}
+.md-typeset .md-button--primary {
+  background: var(--sg-accent-deep);
+  border-color: var(--sg-accent-deep);
+}
+
+/* ---- Code ---- */
+.md-typeset code {
+  background: var(--sg-bg);
+  color: var(--sg-body);
+  font-family: var(--sg-mono);
+  font-size: 0.85em;
+  padding: 0.12em 0.36em;
+  border-radius: 3px;
+  border: 1px solid var(--sg-border);
+}
+.md-typeset pre > code {
+  border: none;
+  background: var(--sg-bg);
+}
+
+/* ============================================================
+ * 수가표 테이블 — B2 그룹핑 + V1 가격 스타일
+ * 사용법: 표 앞에 `{ .fee-table }` 를 붙여서 클래스 지정
+ *   (또는 페이지 전체에 md-in-page CSS 추가)
+ * ============================================================ */
+.md-typeset table:not([class]),
+.md-typeset .fee-table table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--sg-border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--sg-surface);
+  box-shadow: none;
+  font-size: 0.8rem;
+  margin: 0.6rem 0 1.4rem;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset .fee-table th {
+  background: var(--sg-table-head);
+  color: var(--sg-muted);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--sg-border-strong);
+  white-space: nowrap;
 }
 
 .md-typeset table:not([class]) td,
-.md-typeset table:not([class]) th {
-  padding: 0.8em 1em;
+.md-typeset .fee-table td {
+  padding: 0.7rem 1rem;
+  color: var(--sg-body);
+  border-bottom: 1px solid var(--sg-border);
+  vertical-align: baseline;
+}
+.md-typeset table:not([class]) tr:last-child td,
+.md-typeset .fee-table tr:last-child td { border-bottom: none; }
+
+/* 서류명(첫 열) — 약간 더 진하게 */
+.md-typeset table:not([class]) td:first-child,
+.md-typeset .fee-table td:first-child {
+  color: var(--sg-ink);
+  font-weight: 500;
 }
 
-.md-typeset .admonition,
-.md-typeset details {
-  font-size: 0.82rem;
-  border-radius: 0.3rem;
-  border-left-width: 0.25rem;
+/* 가격 열 — "원"으로 끝나는 셀 자동 우측 정렬
+   마크다운에서 | 17,610원 | 처럼 적으면 아래 셀렉터가 잡습니다.
+   더 확실히 하려면 수가표는 3열(가격) 정렬을 우측으로 지정하세요:
+      | 서류명 | 단위 | 비용 | 비고 |
+      |---|---|---:|---|
+*/
+.md-typeset table:not([class]) th:nth-last-child(2),
+.md-typeset .fee-table th:nth-last-child(2),
+.md-typeset table:not([class]) td:nth-last-child(2),
+.md-typeset .fee-table td:nth-last-child(2) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--sg-ink);
+  font-weight: 400;           /* V1: regular */
+  font-family: var(--sg-sans);
 }
 
-.md-typeset .admonition > .admonition-title,
-.md-typeset details > summary {
-  font-weight: 700;
+/* Zebra rows */
+.md-typeset table:not([class]) tbody tr:nth-child(even) td,
+.md-typeset .fee-table tbody tr:nth-child(even) td {
+  background: var(--sg-table-alt);
 }
 
-.md-typeset .md-button {
-  border-radius: 0.3rem;
-  font-weight: 600;
+/* Hover */
+.md-typeset table:not([class]) tbody tr:hover td,
+.md-typeset .fee-table tbody tr:hover td {
+  background: var(--sg-accent-soft);
+  transition: background 0.1s ease;
 }
 
-.md-typeset .grid.cards > ol > li,
-.md-typeset .grid.cards > ul > li {
-  border-radius: 0.4rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+/* ============================================================
+ * 수가표 — 카테고리 섹션 헤더 (B2 그룹핑)
+ *
+ * 마크다운 작성 예:
+ *   ## 진단서 { .fee-section data-count="8" }
+ *   | 서류명 | 단위 | 비용 | 비고 |
+ *   |---|---|---:|---|
+ *   | 병무용 진단서 | 1통 | 20,000원 | — |
+ *   ...
+ *
+ * 카테고리 번호는 순서대로 자동 매겨집니다.
+ * ============================================================ */
+.md-typeset h2.fee-section {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-family: var(--sg-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sg-ink);
+  letter-spacing: -0.015em;
+  margin: 2rem 0 0.6rem;
+  counter-increment: fee-section-counter;
+}
+.md-typeset { counter-reset: fee-section-counter; }
+.md-typeset h2.fee-section::before {
+  content: counter(fee-section-counter, decimal-leading-zero);
+  font-family: var(--sg-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--sg-muted);
+  letter-spacing: 0.08em;
+}
+.md-typeset h2.fee-section[data-count]::after {
+  content: attr(data-count) " items";
+  font-family: var(--sg-sans);
+  font-size: 0.66rem;
+  font-weight: 400;
+  color: var(--sg-muted);
+  letter-spacing: 0.02em;
 }
 
-.md-typeset .grid.cards > ol > li:hover,
-.md-typeset .grid.cards > ul > li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+/* Quick-jump 링크 스트립 ( .quick-jump 클래스로 감싸세요 ) */
+.md-typeset .quick-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 0.6rem 0 0.8rem;
+  border-bottom: 1px solid var(--sg-border);
+  margin-bottom: 1rem;
+  font-size: 0.76rem;
+}
+.md-typeset .quick-jump::before {
+  content: "바로가기";
+  color: var(--sg-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.md-typeset .quick-jump a {
+  color: var(--sg-accent-deep);
+  font-weight: 500;
+  border-bottom: 1px dashed var(--sg-accent);
+  padding-bottom: 1px;
 }
 
-.md-header {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+/* ============================================================
+ * 메타 페이지 헤더 ( .doc-meta 로 감싼 영역 )
+ * 페이지 상단 breadcrumb + 날짜 표시에 사용
+ * ============================================================ */
+.md-typeset .doc-meta {
+  font-family: var(--sg-mono);
+  font-size: 0.7rem;
+  color: var(--sg-muted);
+  letter-spacing: 0.06em;
+  margin: 0 0 1.2rem;
+}
+.md-typeset .eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sg-muted);
+  margin-bottom: 0.4rem;
 }
 
-@media screen and (max-width: 76.1875em) {
-  .md-typeset {
-    font-size: 0.8rem;
-  }
-  .md-typeset table:not([class]) {
-    font-size: 0.72rem;
+/* ---- Footer ---- */
+.md-footer, .md-footer-meta {
+  background: var(--sg-surface);
+  color: var(--sg-muted);
+  border-top: 1px solid var(--sg-border);
+}
+.md-footer-meta.md-typeset a { color: var(--sg-muted); }
+.md-footer-meta { font-size: 0.72rem; }
+.md-footer-nav { display: none; }   /* 아래쪽 prev/next 거대한 블록 제거 (원하면 다시 켜도 됨) */
+
+/* ---- Misc cleanup ---- */
+.md-typeset hr {
+  border-color: var(--sg-border);
+  margin: 1.6rem 0;
+}
+.md-typeset blockquote {
+  border-left: 3px solid var(--sg-border-strong);
+  background: var(--sg-bg);
+  color: var(--sg-body);
+  padding: 0.6rem 1rem;
+  margin: 1rem 0;
+  font-style: normal;
+}
+.md-typeset ul li::marker { color: var(--sg-muted); }
+
+/* 스크롤바 톤 */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--sg-border-strong); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sg-muted-soft); }
+
+/* ---- Right TOC 컬럼 제거 ----
+ * 페이지마다 .quick-jump 로 섹션 네비를 직접 제공하므로
+ * Material 기본 오른쪽 목차는 숨기고 본문이 그 공간을 쓰도록 조정.
+ */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-main__inner > .md-content {
+    max-width: 48rem;
+    margin-right: auto;
   }
 }

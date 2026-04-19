@@ -8,26 +8,28 @@ repo_name: naljahyun/hsdc-docs
 theme:
   name: material
   language: ko
+  font:
+    text: Pretendard
+    code: JetBrains Mono
   features:
     - navigation.top
     - navigation.instant
     - navigation.tracking
-    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: white
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: 다크 모드로 전환
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: 라이트 모드로 전환
@@ -39,6 +41,9 @@ plugins:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/fee-count.js
 
 markdown_extensions:
   - admonition
