@@ -386,17 +386,24 @@ body, .md-typeset {
   font-weight: 500;
 }
 
-/* 가격 열 — "비용" 컬럼은 뒤에서 2번째(note 바로 앞) */
-.md-typeset table:not([class]) th:nth-last-child(2),
-.md-typeset .fee-table th:nth-last-child(2),
-.md-typeset table:not([class]) td:nth-last-child(2),
-.md-typeset .fee-table td:nth-last-child(2) {
+/* 가격 열 — .price 클래스는 fee-count.js가 "비용" 헤더 컬럼에 부여.
+ * table-reader 플러그인이 인라인 text-align:left 를 박기 때문에
+ * CSS 단독으론 override 불가 → JS가 인라인 제거, 여기서 최종 정렬.
+ * th에는 정렬만 적용해 다른 헤더(서류명/단위/비고)와 폰트·색·웨이트 통일. */
+.md-typeset table:not([class]) th.price,
+.md-typeset table:not([class]) td.price {
   text-align: right;
-  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.md-typeset table:not([class]) td.price {
   color: var(--sg-ink);
   font-weight: 400;
   font-family: var(--sg-sans);
-  white-space: nowrap;
+}
+/* 숫자(쉼표 포함)만 세리프. 단위 '원', '무료', '—' 등은 본문 폰트 유지 */
+.md-typeset td.price .num {
+  font-family: var(--sg-serif);
+  font-variant-numeric: tabular-nums;
 }
 
 /* Zebra rows — 원안 B2: 줄무달 없음 */
