@@ -1,0 +1,161 @@
+.md-typeset .fee-table table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--sg-border);
+  border-radius: var(--sg-radius-md);
+  overflow: hidden;
+  background: var(--sg-surface);
+  box-shadow: none;
+  font-size: 0.8rem;
+  margin: 0.6rem 0 1.4rem;
+}
+
+.md-typeset .fee-table th {
+  background: var(--sg-table-head);
+  color: var(--sg-muted);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--sg-border-strong);
+  white-space: nowrap;
+}
+
+.md-typeset .fee-table td {
+  padding: 0.7rem 1rem;
+  color: var(--sg-body);
+  border-bottom: 1px solid var(--sg-border);
+  vertical-align: baseline;
+}
+
+.md-typeset .fee-table tr:last-child td {
+  border-bottom: none;
+}
+
+.md-typeset .fee-table td:first-child {
+  color: var(--sg-ink);
+  font-weight: 500;
+}
+
+.md-typeset .fee-table .price {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--sg-ink);
+  font-weight: 400;
+  font-family: var(--sg-sans);
+  white-space: nowrap;
+}
+
+.md-typeset .fee-table .price .num {
+  font-family: var(--sg-serif);
+}
+
+.md-typeset .fee-table tbody tr:hover td {
+  background: var(--sg-accent-soft);
+  transition: background 0.1s ease;
+}
+
+.md-typeset {
+  counter-reset: fee-section-counter;
+}
+
+.md-typeset h2.fee-section {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-family: var(--sg-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sg-ink);
+  margin: 2rem 0 0.6rem;
+  counter-increment: fee-section-counter;
+}
+
+.md-typeset h2.fee-section::before {
+  content: counter(fee-section-counter, decimal-leading-zero);
+  font-family: var(--sg-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--sg-muted);
+  letter-spacing: 0.08em;
+}
+
+.md-typeset h2.fee-section[data-count]::after {
+  content: attr(data-count) " items";
+  font-family: var(--sg-sans);
+  font-size: 0.66rem;
+  font-weight: 400;
+  color: var(--sg-muted);
+  letter-spacing: 0.02em;
+}
+
+.page-fees .fine-print {
+  margin-top: 3rem;
+}
+
+.page-fees details.fine-print__details {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--sg-border);
+  border-bottom: 1px solid var(--sg-border);
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  font-size: 0.8rem;
+  color: var(--sg-body);
+}
+
+.page-fees details.fine-print__details > summary {
+  background: transparent;
+  padding: 1rem 0;
+  font-family: var(--sg-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--sg-muted);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+}
+
+.page-fees details.fine-print__details > summary::before {
+  display: none;
+}
+
+.page-fees details.fine-print__details > summary::after {
+  content: "+";
+  font-family: var(--sg-mono);
+  color: var(--sg-muted);
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.page-fees details.fine-print__details[open] > summary::after {
+  content: "-";
+}
+
+.page-fees details.fine-print__details[open] > summary {
+  color: var(--sg-accent-deep);
+}
+
+.page-fees details.fine-print__details > *:not(summary) {
+  padding: 0 0 1rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.page-fees details.fine-print__details ul {
+  padding-left: 1.2rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.page-fees details.fine-print__details ul li {
+  margin-bottom: 0.4rem;
+  color: var(--sg-body);
+}

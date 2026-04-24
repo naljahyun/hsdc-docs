@@ -1,0 +1,41 @@
+/* Fonts */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Design tokens */
+:root {
+  --sg-bg: #f8f7f3;
+  --sg-surface: #ffffff;
+  --sg-border: #e8e5dc;
+  --sg-border-strong: #d6d2c5;
+  --sg-ink: #1f2722;
+  --sg-body: #3a443e;
+  --sg-muted: #7a8279;
+  --sg-muted-soft: #a6ab9f;
+  --sg-accent: #527a63;
+  --sg-accent-deep: #2f5142;
+  --sg-accent-soft: #e6ede9;
+  --sg-table-head: #f2f0ea;
+
+  --sg-sans: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sg-serif: 'Noto Serif KR', ui-serif, serif;
+  --sg-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  --sg-radius-sm: 3px;
+  --sg-radius-md: 4px;
+  --sg-content-width: 48rem;
+
+  --md-primary-fg-color: var(--sg-accent);
+  --md-primary-fg-color--light: var(--sg-accent-soft);
+  --md-primary-fg-color--dark: var(--sg-accent-deep);
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: var(--sg-accent-deep);
+  --md-default-bg-color: var(--sg-surface);
+  --md-default-fg-color: var(--sg-ink);
+  --md-default-fg-color--light: var(--sg-body);
+  --md-default-fg-color--lighter: var(--sg-muted);
+  --md-typeset-color: var(--sg-ink);
+  --md-typeset-a-color: var(--sg-accent-deep);
+  --md-code-bg-color: var(--sg-bg);
+  --md-code-fg-color: var(--sg-body);
+}

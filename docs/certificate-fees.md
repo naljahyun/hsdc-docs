@@ -1,6 +1,9 @@
 <div class="eyebrow">안내 / 제증명서 발급 비용</div>
 # 제증명서 발급비용
 <div class="doc-meta">LAST UPDATED · 2026.04.15</div>
+
+<div class="page-fees" markdown>
+
 본원에서 발급 가능한 제증명 서류의 비용을 안내해드립니다.
 비용은 의료법에 따른 기준을 준수하여 책정되었습니다.
 
@@ -25,20 +28,38 @@
 
 ## 진단서 { .fee-section }
 
+<div class="fee-table" markdown>
+
 {{ read_csv('Diagnosis-Certificated.csv') }}
+
+</div>
 
 ## 영상·기록 사본 { .fee-section }
 
+<div class="fee-table" markdown>
+
 {{ read_csv('Record-Certificated.csv') }}
+
+</div>
 
 ## 확인서 { .fee-section }
 
+<div class="fee-table" markdown>
+
 {{ read_csv('Confirmation-Certificated.csv') }}
+
+</div>
 
 ## 영수 관련 { .fee-section }
 
+<div class="fee-table" markdown>
+
 {{ read_csv('Receipt-Certificated.csv') }}
+
+</div>
 
 ---
 
 → [제증명서 발급 안내](certificates.md) 페이지에서 서류 발급 절차를 확인하세요.
+
+</div>

@@ -29,7 +29,11 @@ plugins:
       data_path: docs/data
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/tokens.css
+  - stylesheets/base.css
+  - stylesheets/components.css
+  - stylesheets/fees.css
+  - stylesheets/certificates.css
 
 extra_javascript:
   - javascripts/fee-count.js

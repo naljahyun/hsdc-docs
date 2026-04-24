@@ -2,6 +2,8 @@
 # 치아보험 서류 발급 및 청구 가이드
 <div class="doc-meta">LAST UPDATED · 2026.04.15</div>
 
+<div class="page-certificates" markdown>
+
 치아보험 청구를 위한 제증명 발급 절차와 비용을 안내드립니다. 본원에는 주요 보험사별 청구 양식이 구비되어 있어, 따로 출력해오실 필요가 없습니다.
 
 <div class="part" markdown>
@@ -111,6 +113,8 @@
 
 <div class="footnote" markdown>
 ※ 보험사마다 청구 절차가 조금씩 다를 수 있습니다. 자세한 내용은 가입하신 보험사의 고객센터나 앱 내 안내를 확인해 주세요.
+</div>
+
 </div>
 
 </div>

@@ -1,0 +1,41 @@
+.md-typeset .doc-meta {
+  font-family: var(--sg-mono);
+  font-size: 0.7rem;
+  color: var(--sg-muted);
+  letter-spacing: 0.06em;
+  margin: 0 0 1.2rem;
+}
+
+.md-typeset .eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sg-muted);
+  margin-bottom: 0.4rem;
+}
+
+.md-typeset .quick-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 0.6rem 0 0.8rem;
+  border-bottom: 1px solid var(--sg-border);
+  margin-bottom: 1rem;
+  font-size: 0.76rem;
+}
+
+.md-typeset .quick-jump::before {
+  content: "바로가기";
+  color: var(--sg-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.md-typeset .quick-jump a {
+  color: var(--sg-accent-deep);
+  font-weight: 500;
+  border-bottom: 1px dashed var(--sg-accent);
+  padding-bottom: 1px;
+}
