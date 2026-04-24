@@ -1,12 +1,10 @@
 <div class="eyebrow">안내 / 제증명서 발급 비용</div>
 # 제증명서 발급비용
-
+<div class="doc-meta">LAST UPDATED · 2026.04.15</div>
 본원에서 발급 가능한 제증명 서류의 비용을 안내해드립니다.
 비용은 의료법에 따른 기준을 준수하여 책정되었습니다.
 
 가격은 변동될 수 있으며, 최신 정보는 내원 시 확인해 주세요.
-
-<div class="doc-meta">LAST UPDATED · 2026.04.15</div>
 
 <div class="quick-jump">
   <a href="#진단서">진단서</a>
