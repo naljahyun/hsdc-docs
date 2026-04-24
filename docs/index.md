@@ -1,6 +1,6 @@
 <div class="eyebrow">효사랑치과병원 / 환자 안내문</div>
 # 내원 전 필요한 안내를 한곳에서 확인하세요
-<div class="doc-meta">DOCUMENT HUB · UPDATED WITH CURRENT FEE TABLES</div>
+<div class="doc-meta">철저한 위생, 세심한 배려, 생애주기를 고려한 치료를 지향합니다.</div>
 
 <div class="page-home" markdown>
 
