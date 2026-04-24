@@ -1,6 +1,7 @@
 .venv/
 venv/
 site/
+handoff.md
 __pycache__/
 *.pyc
 .DS_Store
