@@ -7,8 +7,12 @@
 ```text
 hsdc-docs/
 ├─ mkdocs.yml
+├─ requirements.txt
 ├─ handoff.md
 ├─ structure.md
+├─ .github/
+│  └─ workflows/
+│     └─ pages.yml
 ├─ scripts/
 │  └─ serve.py
 └─ docs/
@@ -116,3 +120,14 @@ extra_css:
 ```
 
 `8000` 포트가 이미 사용 중이면 다른 포트를 사용합니다.
+
+## 7. GitHub Pages Deployment
+
+배포는 `.github/workflows/pages.yml`에서 처리합니다.
+
+- `main` 브랜치에 push하면 GitHub Actions가 실행됩니다.
+- `requirements.txt`로 MkDocs 관련 의존성을 설치합니다.
+- `mkdocs build --strict`로 `site/` 디렉터리를 생성합니다.
+- 생성된 `site/` 디렉터리를 GitHub Pages artifact로 업로드하고 Pages에 배포합니다.
+
+GitHub 저장소 설정에서 Pages source는 GitHub Actions로 지정되어 있어야 합니다.
